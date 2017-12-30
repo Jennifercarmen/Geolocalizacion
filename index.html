@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocalización</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+ 
+ <style>
+ html, body, #map-canvas
+ {
+ height: 100%;
+ width: 100%;
+ margin: 0px;
+ padding: 0px;
+ }
+ </style>
+ 
+ <script>
+ function drawMap(latlng)
+ {
+  var options = {zoom: 15, center: latlng};
+  
+  //Creamos el mapa
+  var map = new google.maps.Map(document.getElementById("map-canvas"), options);
+  
+  //Creamos el marcador con la localización del usuario
+  var marker = new google.maps.Marker({
+   position: latlng,
+   map: map,
+   title: "¡¡¡Tu localización!!!"
+  });
+ }
+ 
+ var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);
+ 
+ //Función para obtener la geolocalización con la api HTML5 y cargar el mapa
+ function init_map(){
+  //Si el navegador es compatible
+  if(navigator.geolocation)
+  {
+   //La localización ha sido encontrada
+   function success(pos)
+   {
+   drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+   }
+   
+   //La localización no ha sido encontrada
+   function fail(error)
+   {
+   drawMap(defaultLatLng);
+   }
+   
+   //Cargamos la geolocación del usuario
+   navigator.geolocation.getCurrentPosition(success, fail);
+  }
+  else //Si la api html5 no funciona
+  {
+   drawMap(defaultLatLng);
+  }
+ }
+ 
+window.onload = function(){
+init_map();
+}
+ 
+ </script>
+ 
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
