@@ -4,7 +4,7 @@
     <title>Geolocalización</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670,151.1957&radius=500&types=food&name=cruise&key=AIzaSyC4C7p-SUpGda5c4bmHN7MTtBSDnhRpWGQ"></script>
+
 <script> var map;
  var infowindow;
 
@@ -64,9 +64,12 @@
    });
    }
 </script>
+
 </head>
 <body onload="initMap()">
  <h1>obtener lugares cercanos</h1>
  <div id="mapa" style="width: 450px; height: 350px;"> </div>
+ <script type="text/javascript" src="	https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC4C7p-SUpGda5c4bmHN7MTtBSDnhRpWGQ&callback=initMap
+"></script>
 </body>
 </html>
