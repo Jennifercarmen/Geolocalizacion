@@ -1,0 +1,30 @@
+body{
+	background-color: #eeeeee;
+	text-align: center;
+}
+.card-image img{
+	width: 100%;
+	height: 10em;
+	object-fit: cover;
+}
+#splash {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:100%;
+    background-color:lightgray;
+	z-index: 99;
+}
+#splash img{
+	padding-top: 50%;
+	vertical-align: middle;
+}
+
+#map{
+	margin-top: 1em;
+}
+
+.modal-content .video-container{
+	height: 10em;
+}
